@@ -1,0 +1,18 @@
+{
+  "optimizer_options": ["Acc", "F1", "RST", "LogReg"],
+  "size": "s",
+  "model": "complex",
+  "num_exp": 100,
+  "init_threshold_option": "trivial",
+  "thres_gap": 0.1,
+  "iteration_limit": 1,
+  "num_samples_update": null,
+  "metric": "accuracy",
+  "selection_mechanism": "random",
+  "estimation_type": "estimate_all",
+  "draw_plots": true,
+  "soft": false,
+  "kernel": "Matern",
+  "seed": 12345,
+  "estimate_for_unknown": true
+}
