@@ -93,7 +93,7 @@ def run_threshold_finding(optimizer, gd_scores, gd_labels, gt_scores, gt_labels,
     return add_res_to_df(optimizer, par, global_results)
 
 
-def main(path_to_models: str, output_file: str = None, par: Dict = None):
+def main(path_to_models: str, output_dir: str = None, par: Dict = None):
     df_results = pd.DataFrame(columns=["opt"] + list(par.keys())[1:] + ["acc", "f1", "sem_f1", "sem_acc"])
     gd_scores, gd_labels, gt_scores, gt_labels = read_data(path_to_models, par["size"], par["model"])
 
@@ -105,7 +105,7 @@ def main(path_to_models: str, output_file: str = None, par: Dict = None):
             res = run_threshold_finding(opt_option, gd_scores, gd_labels, gt_scores, gt_labels, par)
             df_results = df_results.append(res, ignore_index=True)
 
-    save_results_csv(df_results, os.path.join(output_file, par["size"]))
+    save_results_csv(df_results, os.path.join(output_dir, par["size"]))
 
     for i, (opt, result) in enumerate(OPTIONS_TO_ACC.items()):
         sems = list(result[1].values())
@@ -135,7 +135,7 @@ def main(path_to_models: str, output_file: str = None, par: Dict = None):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--path_to_models", type=str, default="./")
-    parser.add_argument("--output_file", default=None, type=str)
+    parser.add_argument("--output_dir", default="../out/", type=str)
     parser.add_argument("--path_to_config", type=str, default="./config.json")
     args = parser.parse_args()
 
@@ -143,4 +143,4 @@ if __name__ == "__main__":
         params = json.load(config_file)
         print(params)
 
-    main(args.path_to_models, args.output_file, params)
+    main(args.path_to_models, args.output_dir, params)
