@@ -1,13 +1,12 @@
 # ACTC
-****
 ### ACTC: ACtive Threshold Calibration
 
 [![py\_versions](https://img.shields.io/badge/python-3.7%2B-blue)](https://pypi.org/pypi/cleanlab/)
 
 This repository contains code used in our paper: </br>
 "ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"
-to be presented at ACL 2023 🎉 </br>
-by Anastasiia Sedova and Benjamin Roth, University of Vienna.
+to be presented at ACL 2023 🚀 </br>
+by Anastasiia Sedova and Benjamin Roth.
 
 For any questions please [get in touch](mailto:anastasiia.sedova@univie.ac.at).
 
@@ -23,17 +22,27 @@ Mostly important, it helps to find thresholds in a setting where there is only a
 annotations.
 
 <p align="center">
-  <img src="img.png" alt="ACTC" width="50%" height="50%">
+  <img src="img.png" alt="ACTC" width="60%" height="60%">
 </p>
 
 ---
 
 ### Usage 🚀
 
-`python main.py --path_to_models directory/with/KGE/model/predictions/are/stored 
---output_dir path/to/output/directory --path_to_config path/to/config/file`
+The ACTC could be launched by running the `main.py` script. 
+
+Here is an example:
+
+```
+python main.py 
+--path_to_data path/to/directory/with/data/and/KGE/model/predictions/
+--output_dir path/to/output/directory 
+--path_to_config path/to/config/file
+```
+An example of data directory (CoDEx-s dataset & ComplEx embeddings): `data`
 
 An example of a config file: `scripts/configs/config.json`
+
 ---
 ### Citation 🗒️
 
