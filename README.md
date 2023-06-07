@@ -7,32 +7,35 @@
 This repository contains code used in our paper: </br>
 "ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"
 to be presented at ACL 2023 🎉 </br>
-by Anastasiia Sedova and Benjamin Roth.
+by Anastasiia Sedova and Benjamin Roth, University of Vienna.
 
 For any questions please [get in touch](mailto:anastasiia.sedova@univie.ac.at).
 
 ---
 
-### What is ACTC?
+### What is ACTC? 💻
 
-ACTC is a method for estimation the relation threshold for a cold-start knowledge graph completion.
+ACTC is a new method for estimation the relation threshold for a cold-start knowledge graph completion.
 ACTC leverages a limited set of labeled and a large set of unlabeled data in order to calculate per-relation thresholds.
 Basing on these thresholds and plausibility scores calculated by a knowledge graph embedding model, one 
 can make a decision about whether a new triple should be included to the knowledge graph or not.
 Mostly important, it helps to find thresholds in a setting where there is only a limited set of available manual 
 annotations.
 
+<p align="center">
+  <img src="img.png" alt="ACTC" width="50%" height="50%">
+</p>
+
 ---
 
-### Usage
+### Usage 🚀
 
 `python main.py --path_to_models directory/with/KGE/model/predictions/are/stored 
 --output_dir path/to/output/directory --path_to_config path/to/config/file`
 
 An example of a config file: `scripts/configs/config.json`
-
 ---
-### Citation 
+### Citation 🗒️
 
 When using our work please cite our ArXiV preprint: 
 
@@ -46,7 +49,6 @@ When using our work please cite our ArXiV preprint:
       primaryClass={cs.LG}
 }
 ```
-
 ---
 ### Acknowledgements 💎
 
