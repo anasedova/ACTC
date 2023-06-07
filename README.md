@@ -5,7 +5,7 @@
 
 This repository contains code used in our paper: </br>
 **"ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"**
-to be presented at ACL 2023 🚀 </br>
+to be presented at ACL'23 🚀 </br>
 by Anastasiia Sedova and Benjamin Roth.
 
 For any questions please [get in touch](mailto:anastasiia.sedova@univie.ac.at).
