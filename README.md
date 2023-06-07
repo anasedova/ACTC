@@ -3,7 +3,7 @@
 
 [![py\_versions](https://img.shields.io/badge/python-3.7%2B-blue)](https://pypi.org/pypi/cleanlab/)
 
-This repository contains code used in our paper: </br>
+This repository contains code used in our paper:
 **"ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"**
 to be presented at ACL'23 🚀 </br>
 by Anastasiia Sedova and Benjamin Roth.
