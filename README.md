@@ -12,7 +12,7 @@ For any questions please [get in touch](mailto:anastasiia.sedova@univie.ac.at).
 
 ---
 
-### What is ACTC? 💻
+### What is ACTC?
 
 ACTC is a new method for estimation the relation threshold for a cold-start knowledge graph completion.
 ACTC leverages a limited set of labeled and a large set of unlabeled data in order to calculate per-relation thresholds.
@@ -44,7 +44,7 @@ An example of a directory where data and KGE model predictions are stored (for C
 An example of a config file: `scripts/configs/config.json`
 
 ---
-### Citation 🗒️
+### Citation
 
 When using our work please cite our ArXiV preprint: 
 
