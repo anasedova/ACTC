@@ -6,7 +6,7 @@
 
 This repository contains code used in our paper: </br>
 "ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"
-to be published at ACL 2023 🎉 </br>
+to be presented at ACL 2023 🎉 </br>
 by Anastasiia Sedova and Benjamin Roth.
 
 For any questions please [get in touch](mailto:anastasiia.sedova@univie.ac.at).
@@ -37,16 +37,17 @@ An example of a config file: `scripts/configs/config.json`
 When using our work please cite our ArXiV preprint: 
 
 ```
+@article{sedova2023actc,
+      title={ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion}, 
+      author={Anastasiia Sedova and Benjamin Roth},
+      year={2023},
+      eprint={2305.06395},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 ```
 
 ---
 ### Acknowledgements 💎
 
-This research was funded by the WWTF though the project “Knowledge-infused Deep Learning for Natural Language 
-Processing” (WWTF Vienna Research Group VRG19-008).
-
-
-
-
-
-
+This research has been funded by the Vienna Science and Technology Fund (WWTF)[10.47379/VRG19008] and by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) RO 5127/2-1.
