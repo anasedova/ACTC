@@ -4,8 +4,8 @@ from typing import Dict, List, Tuple, Union
 
 import numpy as np
 
-from scripts.optimizers.base_optimizer import BaseOptimizer
-from scripts.utils import choose_threshold_with_expected_metric, calculate_sample_distances
+from ACTC.scripts.optimizers.base_optimizer import BaseOptimizer
+from ACTC.scripts.utils import choose_threshold_with_expected_metric, calculate_sample_distances
 
 
 # num_samples = 1000

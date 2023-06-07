@@ -8,17 +8,17 @@ import pandas as pd
 
 from tqdm import tqdm
 
-from scripts.optimizers.global_optimizer import GlobalOptimizer
-from scripts.optimizers.local_accuracy_optimizer import LocalOptAcc
-from scripts.optimizers.local_accuracy_optimizer_uni import UniLocalOptAcc
-from scripts.optimizers.local_f1_optimizer import LocalOptF1
-from scripts.optimizers.local_f1_optimizer_uni import UniLocalOptF1
-from scripts.optimizers.gp_optimizer import GaussianProcessOptimizer
-from scripts.optimizers.logreg_optimizer import LogisticRegressionOptimizer
-from scripts.optimizers.gp_optimizer_global import UniGaussianProcessOptimizer
-from scripts.optimizers.logreg_optimizer_uni import UniLogisticRegressionOptimizer
-from scripts.optimizers.simple_pred_optimizer import BasePredictionOptimizer
-from scripts.utils import read_data, evaluate_acc_f1, create_plots, update_scores_dict, calculate_mean_sem, set_seed, \
+from ACTC.scripts.optimizers.global_optimizer import GlobalOptimizer
+from ACTC.scripts.optimizers.local_accuracy_optimizer import LocalOptAcc
+from ACTC.scripts.optimizers.local_accuracy_optimizer_uni import UniLocalOptAcc
+from ACTC.scripts.optimizers.local_f1_optimizer import LocalOptF1
+from ACTC.scripts.optimizers.local_f1_optimizer_uni import UniLocalOptF1
+from ACTC.scripts.optimizers.gp_optimizer import GaussianProcessOptimizer
+from ACTC.scripts.optimizers.logreg_optimizer import LogisticRegressionOptimizer
+from ACTC.scripts.optimizers.gp_optimizer_global import UniGaussianProcessOptimizer
+from ACTC.scripts.optimizers.logreg_optimizer_uni import UniLogisticRegressionOptimizer
+from ACTC.scripts.optimizers.simple_pred_optimizer import BasePredictionOptimizer
+from ACTC.scripts.utils import read_data, evaluate_acc_f1, create_plots, update_scores_dict, calculate_mean_sem, set_seed, \
     calculate_overall_metrics, add_res_to_df, save_results_csv
 
 N_more = [1, 1, 3, 5, 10, 30, 50, 100, 300, 500]  # number of new labels randomly sampled from gold validation labels
@@ -93,9 +93,9 @@ def run_threshold_finding(optimizer, gd_scores, gd_labels, gt_scores, gt_labels,
     return add_res_to_df(optimizer, par, global_results)
 
 
-def main(path_to_models: str, output_dir: str = None, par: Dict = None):
+def main(path_to_data: str, output_dir: str = None, par: Dict = None):
     df_results = pd.DataFrame(columns=["opt"] + list(par.keys())[1:] + ["acc", "f1", "sem_f1", "sem_acc"])
-    gd_scores, gd_labels, gt_scores, gt_labels = read_data(path_to_models, par["size"], par["model"])
+    gd_scores, gd_labels, gt_scores, gt_labels = read_data(path_to_data, par["size"], par["model"])
 
     if type(par["optimizer_options"]) == str:
         res = run_threshold_finding(par["optimizer_options"], gd_scores, gd_labels, gt_scores, gt_labels, par)
@@ -134,7 +134,7 @@ def main(path_to_models: str, output_dir: str = None, par: Dict = None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--path_to_models", type=str, default="./")
+    parser.add_argument("--path_to_data", type=str, default="./")
     parser.add_argument("--output_dir", default="../out/", type=str)
     parser.add_argument("--path_to_config", type=str, default="./config.json")
     args = parser.parse_args()
@@ -143,4 +143,4 @@ if __name__ == "__main__":
         params = json.load(config_file)
         print(params)
 
-    main(args.path_to_models, args.output_dir, params)
+    main(args.path_to_data, args.output_dir, params)

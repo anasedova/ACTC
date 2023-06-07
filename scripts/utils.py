@@ -18,43 +18,49 @@ mpl.rcParams['font.family'] = 'Avenir'
 plt.rcParams['font.size'] = 13
 plt.rcParams['axes.linewidth'] = 2
 
-REL_KEY = -1
 
-
-def read_data(path_to_models, size, model) -> Tuple[Dict, Dict, Dict, Dict]:
+def read_data(
+        path_to_models, size, model,
+        dataset="codex",
+        valid_score_file_name="valid_score.tsv",
+        valid_label_file_name="valid_label.tsv",
+        test_score_file_name="test_score.tsv",
+        test_label_file_name="test_label.tsv"
+) -> Tuple[Dict, Dict, Dict, Dict]:
     """
-    Args:
-        path_to_models:
-        size:
-        model:
     Output:
         gd_scores - a dictionary with all validation triples as keys, gold scores as values
         gd_labels - a dictionary with all validation triples as keys, gold labels as values
         gt_scores - a dictionary with all test triples as keys, gold scores as values
         gt_labels - a dictionary with all test triples as keys, gold labels as values
     """
-    print("=== " + size + "/" + model + " ===")
+    if dataset == "codex":
+        dataset_full_name = f"{dataset}-{size}"
+    else:
+        dataset_full_name = dataset
+
+    print("=== " + dataset_full_name + "/" + model + " ===")
 
     gd_scores = {}
-    with open(os.path.join(path_to_models, f"codex-{size}", model, "valid_score.tsv"), "r") as vs:
+    with open(os.path.join(path_to_models, dataset_full_name, model, valid_score_file_name), "r") as vs:
         gd_score_reader = csv.reader(vs, delimiter="\t")
         for row in gd_score_reader:
             gd_scores[tuple([i for i in row[:3]])] = float(row[3])
 
     gd_labels = {}
-    with open(os.path.join(path_to_models, f"codex-{size}", "valid_label.tsv"), "r") as vl:
+    with open(os.path.join(path_to_models, dataset_full_name, valid_label_file_name), "r") as vl:
         gd_label_reader = csv.reader(vl, delimiter="\t")
         for row in gd_label_reader:
             gd_labels[tuple([i for i in row[:3]])] = float(row[3])
 
     gt_scores = {}
-    with open(os.path.join(path_to_models, f"codex-{size}", model, "test_score.tsv"), "r") as ts:
+    with open(os.path.join(path_to_models, dataset_full_name, model, test_score_file_name), "r") as ts:
         gt_score_reader = csv.reader(ts, delimiter="\t")
         for row in gt_score_reader:
             gt_scores[tuple([i for i in row[:3]])] = float(row[3])
 
     gt_labels = {}
-    with open(os.path.join(path_to_models, f"codex-{size}", "test_label.tsv"), "r") as tl:
+    with open(os.path.join(path_to_models, dataset_full_name, test_label_file_name), "r") as tl:
         gt_label_reader = csv.reader(tl, delimiter="\t")
         for row in gt_label_reader:
             gt_labels[tuple([i for i in row[:3]])] = float(row[3])
@@ -104,15 +110,17 @@ def choose_threshold_with_expected_metric(
 
 
 def evaluate_acc_f1(
-        dict_scores: Dict[Tuple, float], dict_labels: Dict[Tuple, float], thresholds: Union[Dict[str, float], float]
+        dict_scores: Dict[Tuple, float], dict_labels: Dict[Tuple, float], thresholds: Union[Dict[str, float], float],
+        rel_key: int = -1
 ) -> Tuple[float, float]:
+
     pred_labels = []
     true_labels = []
 
     for triple, label in dict_labels.items():
         true_labels.append(label)
         if type(thresholds) is dict:
-            relation = triple[1] if triple[1] in thresholds.keys() else REL_KEY
+            relation = triple[1] if triple[1] in thresholds.keys() else rel_key
             # append 1 if score of the entry > threshold for the corresponding relation, otherwise 0
             pred_labels.append(int(dict_scores[triple] >= thresholds[relation]))
         else:

@@ -1,6 +1,6 @@
 from typing import Dict
 from sklearn import linear_model
-from scripts.optimizers.simple_pred_optimizer import PredictionOptimizer
+from ACTC.scripts.optimizers.simple_pred_optimizer import PredictionOptimizer
 
 
 class LogisticRegressionOptimizer(PredictionOptimizer):

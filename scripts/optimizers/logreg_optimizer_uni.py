@@ -1,6 +1,6 @@
 from typing import Dict
 from sklearn import linear_model
-from scripts.optimizers.simple_pred_optimizer import UniPredictionOptimizer
+from ACTC.scripts.optimizers.simple_pred_optimizer import UniPredictionOptimizer
 
 
 class UniLogisticRegressionOptimizer(UniPredictionOptimizer):

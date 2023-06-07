@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RationalQuadratic, Matern, RBF
 
-from scripts.optimizers.simple_pred_optimizer import PredictionOptimizer
+from ACTC.scripts.optimizers.simple_pred_optimizer import PredictionOptimizer
 
 
 class GaussianProcessOptimizer(PredictionOptimizer):

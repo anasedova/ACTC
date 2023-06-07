@@ -1,7 +1,7 @@
 from typing import Dict
 
-from scripts.optimizers.base_optimizer import BaseOptimizer
-from scripts.utils import choose_threshold_with_expected_metric
+from ACTC.scripts.optimizers.base_optimizer import BaseOptimizer
+from ACTC.scripts.utils import choose_threshold_with_expected_metric
 
 
 class UniLocalOptAcc(BaseOptimizer):

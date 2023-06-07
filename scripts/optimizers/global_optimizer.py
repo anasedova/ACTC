@@ -1,7 +1,7 @@
 from typing import Dict, Set
 
-from scripts.optimizers.base_optimizer import BaseOptimizer
-from scripts.utils import evaluate_acc_f1, choose_threshold_with_expected_metric
+from ACTC.scripts.optimizers.base_optimizer import BaseOptimizer
+from ACTC.scripts.utils import evaluate_acc_f1, choose_threshold_with_expected_metric
 
 
 class GlobalOptimizer(BaseOptimizer):

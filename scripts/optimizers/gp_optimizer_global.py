@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.gaussian_process import GaussianProcessClassifier
 from sklearn.gaussian_process.kernels import RationalQuadratic
 
-from scripts.optimizers.simple_pred_optimizer import UniPredictionOptimizer
+from ACTC.scripts.optimizers.simple_pred_optimizer import UniPredictionOptimizer
 
 
 class UniGaussianProcessOptimizer(UniPredictionOptimizer):

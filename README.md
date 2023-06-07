@@ -39,7 +39,7 @@ python main.py
 --output_dir path/to/output/directory 
 --path_to_config path/to/config/file
 ```
-An example of data directory (CoDEx-s dataset & ComplEx embeddings): `data`
+An example of a directory where data and KGE model predictions are stored (for CoDEx-s dataset + ComplEx embeddings): `data`
 
 An example of a config file: `scripts/configs/config.json`
 
