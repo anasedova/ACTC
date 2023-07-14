@@ -46,16 +46,19 @@ An example of a config file: `scripts/configs/config.json`
 ---
 ### Citation
 
-When using our work please cite our ArXiV preprint: 
+When using our work, please cite our ArXiV preprint: 
 
 ```
-@article{sedova2023actc,
-      title={ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion}, 
-      author={Anastasiia Sedova and Benjamin Roth},
-      year={2023},
-      eprint={2305.06395},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+@inproceedings{sedova-roth-2023-actc, 
+      title = "{ACTC}: Active Threshold Calibration for Cold-Start Knowledge Graph Completion",
+      author = "Sedova, Anastasiia and Roth, Benjamin", 
+      booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+      month = jul,
+      year = "2023",
+      address = "Toronto, Canada",
+      publisher = "Association for Computational Linguistics",
+      url = "https://aclanthology.org/2023.acl-short.158",
+      pages = "1853--1863"
 }
 ```
 ---
