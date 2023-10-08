@@ -3,16 +3,16 @@
 
 [![py\_versions](https://img.shields.io/badge/python-3.7%2B-blue)](https://pypi.org/pypi/cleanlab/)
 
-This repository contains code used in our paper: </br>
-"ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"
-to be presented at ACL 2023 🚀 </br>
+This repository contains code used in our paper:
+**"ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion"**
+to be presented at ACL'23 🚀 </br>
 by Anastasiia Sedova and Benjamin Roth.
 
 For any questions please [get in touch](mailto:anastasiia.sedova@univie.ac.at).
 
 ---
 
-### What is ACTC? 💻
+### What is ACTC?
 
 ACTC is a new method for estimation the relation threshold for a cold-start knowledge graph completion.
 ACTC leverages a limited set of labeled and a large set of unlabeled data in order to calculate per-relation thresholds.
@@ -44,18 +44,21 @@ An example of a directory where data and KGE model predictions are stored (for C
 An example of a config file: `scripts/configs/config.json`
 
 ---
-### Citation 🗒️
+### Citation
 
-When using our work please cite our ArXiV preprint: 
+When using our work, please cite our ArXiV preprint: 
 
 ```
-@article{sedova2023actc,
-      title={ACTC: Active Threshold Calibration for Cold-Start Knowledge Graph Completion}, 
-      author={Anastasiia Sedova and Benjamin Roth},
-      year={2023},
-      eprint={2305.06395},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+@inproceedings{sedova-roth-2023-actc, 
+      title = "{ACTC}: Active Threshold Calibration for Cold-Start Knowledge Graph Completion",
+      author = "Sedova, Anastasiia and Roth, Benjamin", 
+      booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+      month = jul,
+      year = "2023",
+      address = "Toronto, Canada",
+      publisher = "Association for Computational Linguistics",
+      url = "https://aclanthology.org/2023.acl-short.158",
+      pages = "1853--1863"
 }
 ```
 ---
